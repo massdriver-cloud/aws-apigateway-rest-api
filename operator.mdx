@@ -1,0 +1,36 @@
+# AWS API Gateway REST API
+
+Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain,
+monitor, and secure APIs at any scale. The REST API feature in Amazon API Gateway enables you to create a
+RESTful API that can handle a variety of data formats, including JSON and XML, and supports the HTTPS protocol.
+With the REST API, you can create endpoints that can be accessed using the standard HTTP methods such as GET,
+POST, PUT, and DELETE, and you can also use it to handle custom HTTP methods.
+
+Amazon API Gateway integrates with a variety of AWS services, including but not limited to:
+
+- AWS Lambda: You can use Lambda functions as the backend for your RESTful API, allowing you to run your application
+  logic in response to incoming requests.
+- Amazon Elastic Container Service (ECS): You can use ECS as the backend for your RESTful API, allowing you to run
+  and scale your containerized applications.
+- Amazon Elastic Container Service for Kubernetes (EKS): You can use EKS as the backend for your RESTful API, allowing
+  you to run and scale your Kubernetes-based applications.
+- Amazon DynamoDB: You can use DynamoDB as the data store for your RESTful API, allowing you to easily store, retrieve, and query data.
+- Amazon S3: You can use S3 as the file storage for your RESTful API, allowing you to easily upload and download files.
+- AWS AppSync: You can use AppSync as the backend for your GraphQL API, allowing you to easily create and query graph data.
+- AWS Step Functions: You can use Step Functions to orchestrate the various steps of your serverless application, allowing
+  you to easily control the flow of data between different services.
+- AWS EventBridge: You can use EventBridge to trigger Lambda functions and Step Functions in response to events from other AWS services,
+  allowing you to easily build event-driven applications.
+- AWS CloudFormation: You can use CloudFormation to model and provision your entire RESTful API infrastructure as code.
+
+# Bundle Features
+
+## Automatic DNS and SSL
+
+This bundle automatically creates an SSL certificate for the specified subdomain in your hosted zone. An Alias (A) DNS record is created as well and bound to the root path of your API
+Gateway and default stage.
+
+## Automatic Certificate Assignment for Edge Optimized Gateways
+
+API Gateway can be run in REGIONAL mode which is great for accessing your API from smaller geographies like single continents. EDGE mode will put a CloudFront distrobution in front of
+your API providing global caching and lowering latency for distant clients.

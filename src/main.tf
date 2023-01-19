@@ -28,7 +28,7 @@ module "acm_regional_certificate" {
 }
 
 module "api_gateway" {
-  source                 = "github.com/massdriver-cloud/terraform-modules//aws/api-gateway-rest-api?ref=a8fa386"
+  source                 = "github.com/massdriver-cloud/terraform-modules//aws/api-gateway-rest-api?ref=2e621cf"
   name                   = var.md_metadata.name_prefix
   endpoint_configuration = var.rest_api.endpoint_configuration
   domain                 = local.fq_domain

@@ -6,8 +6,9 @@ resource "massdriver_artifact" "api_gateway" {
     {
       data = {
         infrastructure = {
-          arn       = module.api_gateway.arn
-          stage_arn = module.api_gateway.stage_arn
+          arn              = module.api_gateway.arn
+          stage_arn        = module.api_gateway.stage_arn
+          root_resource_id = module.api_gateway.root_resource_id
         }
       }
       specs = {

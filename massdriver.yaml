@@ -1,0 +1,112 @@
+# This file will be used to generate all of the schema-*.json files in a bundle
+schema: draft-07
+name: "aws-api-gateway"
+description: "Serverless Rest API which can be integrated with various AWS services"
+source_url: github.com/massdriver-cloud/aws-api-gateway
+access: "private"
+type: "infrastructure"
+
+# schema-params.json
+# JSON Schema sans-fields above
+params:
+  # Examples will show up as configuration presets in the UI _and_
+  # they will be used to test configurations of the bundle.
+  examples:
+    - __name: Edge Optimized
+      rest_api:
+        endpoint_configuration: EDGE
+    - __name: Regional
+      rest_api:
+        endpoint_configuration: REGIONAL
+  required:
+    - rest_api
+    - dns
+  properties:
+    rest_api:
+      type: object
+      title: REST API
+      description: API GATEWAY general configuration
+      required:
+        - region
+        - endpoint_configuration
+        - stage_name
+      properties:
+        region:
+          $ref:  https://raw.githubusercontent.com/massdriver-cloud/artifact-definitions/main/definitions/types/aws-region.json
+          $md.immutable: true
+        endpoint_configuration:
+          type: string
+          title: Endpoint Configuration
+          description: "API Gateways can be region bound, or edge optimized which will create a global presence."
+          $md.immutable: true
+          enum:
+            - EDGE
+            - REGIONAL
+        stage_name:
+          type: string
+          title: Stage Name
+          description: Deployments of API gateway are tied to a stage
+          default: live
+    dns:
+      type: object
+      title: DNS
+      description: Configuration to enable custom DNS and SSL Certs
+      required:
+        - hosted_zone
+        - sub_domain
+      properties:
+        hosted_zone:
+          type: string
+          title: Route53 Hosted Zone
+          description: Creates an A record in your hosted zone for the selected subdomain
+          $md.immutable: true
+          $ref: https://raw.githubusercontent.com/massdriver-cloud/artifact-definitions/main/definitions/types/aws-arn.json
+        sub_domain:
+          title: Sub Domain
+          description: Prefix added to the hosted zone's domain where you can access your API Gateway via DNS.
+          type: string
+          $md.immutable: true
+          pattern: ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9]))*$
+          message:
+            pattern: Hostname should consist of letters, numbers, and hyphens, such as staging-env
+
+
+# schema-connections.json
+# Named list of input connections (artifacts) (map[name]artifact)
+
+connections:
+  properties:
+    aws_authentication:
+      $ref: massdriver/aws-iam-role
+
+
+# schema-artifacts.json
+# Named list of output artifacts  (map[name]artifact)
+artifacts:
+  required:
+    - api_gateway
+  properties:
+    api_gateway:
+      $ref: massdriver/aws-api-gateway-rest-api
+
+# schema-ui.json
+# List of form customizations for params-schema
+ui:
+  ui:order:
+    - "rest_api"
+    - "dns"
+  rest_api:
+    ui:order:
+      - region
+      - endpoint_configuration
+      - stage_name
+    region:
+      ui:field: supportedCloudLocationsDropdown
+      cloudService: aws
+  dns:
+    ui:order:
+      - hosted_zone
+      - sub_domain
+    hosted_zone:
+      ui:field: dnsZonesDropdown
+      cloud: aws

@@ -75,6 +75,8 @@ params:
 # Named list of input connections (artifacts) (map[name]artifact)
 
 connections:
+  required:
+    - aws_authentication
   properties:
     aws_authentication:
       $ref: massdriver/aws-iam-role

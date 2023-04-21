@@ -1,8 +1,8 @@
 locals {
-  fq_domain             = "${var.dns.sub_domain}.${data.aws_route53_zone.lookup[0].name}"
+  fq_domain             = var.dns.enabled ? "${var.dns.sub_domain}.${data.aws_route53_zone.lookup[0].name}" : ""
   is_regional           = var.rest_api.endpoint_configuration == "REGIONAL"
   is_edge               = var.rest_api.endpoint_configuration == "EDGE"
-  regional_or_edge_cert = local.is_regional ? module.acm_regional_certificate[0].certificate_arn : module.acm_edge_certificate[0].certificate_arn
+  regional_or_edge_cert = var.dns.enabled ? (local.is_regional ? module.acm_regional_certificate[0].certificate_arn : module.acm_edge_certificate[0].certificate_arn) : ""
   hosted_zone_id        = var.dns.enabled ? split("/", var.dns.hosted_zone)[1] : ""
 }
 

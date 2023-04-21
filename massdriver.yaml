@@ -2,7 +2,7 @@
 schema: draft-07
 name: "aws-api-gateway"
 description: "Serverless Rest API which can be integrated with various AWS services"
-source_url: github.com/massdriver-cloud/aws-api-gateway
+source_url: github.com/massdriver-cloud/aws-apigateway-rest-api
 access: "private"
 type: "infrastructure"
 
@@ -12,6 +12,13 @@ params:
   # Examples will show up as configuration presets in the UI _and_
   # they will be used to test configurations of the bundle.
   examples:
+    - __name: Wizard
+      rest_api:
+        endpoint_configuration: REGIONAL
+        region: us-west-2
+        stage_name: live
+      dns:
+        enabled: false
     - __name: Edge Optimized
       rest_api:
         endpoint_configuration: EDGE
@@ -51,24 +58,38 @@ params:
       type: object
       title: DNS
       description: Configuration to enable custom DNS and SSL Certs
-      required:
-        - hosted_zone
-        - sub_domain
+      dependencies:
+        enabled:
+          oneOf:
+            - properties:
+                enabled:
+                  const: false
+            - properties:
+                enabled:
+                  const: true
+                hosted_zone:
+                  type: string
+                  title: Route53 Hosted Zone
+                  description: Creates an A record in your hosted zone for the selected subdomain
+                  $md.immutable: true
+                  $ref: https://raw.githubusercontent.com/massdriver-cloud/artifact-definitions/main/definitions/types/aws-arn.json
+                sub_domain:
+                  title: Sub Domain
+                  description: Prefix added to the hosted zone's domain where you can access your API Gateway via DNS.
+                  type: string
+                  $md.immutable: true
+                  pattern: ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9]))*$
+                  message:
+                    pattern: Hostname should consist of letters, numbers, and hyphens, such as staging-env
+              required:
+                - hosted_zone
+                - sub_domain
       properties:
-        hosted_zone:
-          type: string
-          title: Route53 Hosted Zone
-          description: Creates an A record in your hosted zone for the selected subdomain
-          $md.immutable: true
-          $ref: https://raw.githubusercontent.com/massdriver-cloud/artifact-definitions/main/definitions/types/aws-arn.json
-        sub_domain:
-          title: Sub Domain
-          description: Prefix added to the hosted zone's domain where you can access your API Gateway via DNS.
-          type: string
-          $md.immutable: true
-          pattern: ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9]))*$
-          message:
-            pattern: Hostname should consist of letters, numbers, and hyphens, such as staging-env
+        enabled:
+          type: boolean
+          title: Enable DNS and SSL
+          description: Enabling this option will allow you to define DNS for your API Gateway
+          default: true
 
 
 # schema-connections.json
@@ -107,6 +128,7 @@ ui:
       cloudService: aws
   dns:
     ui:order:
+      - enabled
       - hosted_zone
       - sub_domain
     hosted_zone:

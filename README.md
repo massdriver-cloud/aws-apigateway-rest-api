@@ -59,18 +59,7 @@ Form input parameters for configuring a bundle for deployment.
 ## Properties
 
 - **`dns`** *(object)*: Configuration to enable custom DNS and SSL Certs.
-  - **`hosted_zone`** *(string)*: Creates an A record in your hosted zone for the selected subdomain.
-
-    Examples:
-    ```json
-    "arn:aws:rds::ACCOUNT_NUMBER:db/prod"
-    ```
-
-    ```json
-    "arn:aws:ec2::ACCOUNT_NUMBER:vpc/vpc-foo"
-    ```
-
-  - **`sub_domain`** *(string)*: Prefix added to the hosted zone's domain where you can access your API Gateway via DNS.
+  - **`enabled`** *(boolean)*: Enabling this option will allow you to define DNS for your API Gateway. Default: `True`.
 - **`rest_api`** *(object)*: API GATEWAY general configuration.
   - **`endpoint_configuration`** *(string)*: API Gateways can be region bound, or edge optimized which will create a global presence. Must be one of: `['EDGE', 'REGIONAL']`.
   - **`region`** *(string)*: AWS Region to provision in.
@@ -82,6 +71,20 @@ Form input parameters for configuring a bundle for deployment.
 
   - **`stage_name`** *(string)*: Deployments of API gateway are tied to a stage. Default: `live`.
 ## Examples
+
+  ```json
+  {
+      "__name": "Wizard",
+      "dns": {
+          "enabled": false
+      },
+      "rest_api": {
+          "endpoint_configuration": "REGIONAL",
+          "region": "us-west-2",
+          "stage_name": "live"
+      }
+  }
+  ```
 
   ```json
   {
@@ -155,26 +158,27 @@ Resources created by this bundle that can be connected to other bundles.
 - **`api_gateway`** *(object)*: AWS API Gateway and it's Default Stage. Cannot contain additional properties.
   - **`data`** *(object)*
     - **`infrastructure`** *(object)*
-      - **`arn`** *(string)*: Amazon Resource Name.
+      - **`arn`** *(string)*: Amazon Resource Name format for API Gateway and related resources.
 
         Examples:
         ```json
-        "arn:aws:rds::ACCOUNT_NUMBER:db/prod"
+        "arn:partition:apigateway:region::/restapis/api-id"
         ```
 
         ```json
-        "arn:aws:ec2::ACCOUNT_NUMBER:vpc/vpc-foo"
+        "arn:partition:apigateway:region::/restapis/api-id/stages/stage-id"
         ```
 
-      - **`stage_arn`** *(string)*: Amazon Resource Name.
+      - **`root_resource_id`** *(string)*: Id of the API Gateway resource at the '/' route.
+      - **`stage_arn`** *(string)*: Amazon Resource Name format for API Gateway and related resources.
 
         Examples:
         ```json
-        "arn:aws:rds::ACCOUNT_NUMBER:db/prod"
+        "arn:partition:apigateway:region::/restapis/api-id"
         ```
 
         ```json
-        "arn:aws:ec2::ACCOUNT_NUMBER:vpc/vpc-foo"
+        "arn:partition:apigateway:region::/restapis/api-id/stages/stage-id"
         ```
 
   - **`specs`** *(object)*

@@ -162,8 +162,8 @@ params:
                       description: "Unit: SUM"
                       type: object
                       <<: *cloudwatch_alarm_metric_float
-                    sever_errors:
-                      title: 5XXError Percenta
+                    server_errors:
+                      title: 5XXError Percent
                       description: "Unit: SUM"
                       type: object
                       <<: *cloudwatch_alarm_metric_float

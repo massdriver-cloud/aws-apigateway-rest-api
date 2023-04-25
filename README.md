@@ -59,6 +59,12 @@ Form input parameters for configuring a bundle for deployment.
 
 - **`dns`** *(object)*: Configuration to enable custom DNS and SSL Certs.
   - **`enabled`** *(boolean)*: Enabling this option will allow you to define DNS for your API Gateway. Default: `True`.
+- **`monitoring`** *(object)*
+  - **`mode`** *(string)*: Enable and customize APIGateway metric alarms. Default: `AUTOMATED`.
+    - **One of**
+      - Automated
+      - Custom
+      - Disabled
 - **`rest_api`** *(object)*: API GATEWAY general configuration.
   - **`endpoint_configuration`** *(string)*: API Gateways can be region bound, or edge optimized which will create a global presence. Must be one of: `['EDGE', 'REGIONAL']`.
   - **`region`** *(string)*: AWS Region to provision in.
@@ -76,6 +82,9 @@ Form input parameters for configuring a bundle for deployment.
       "__name": "Wizard",
       "dns": {
           "enabled": false
+      },
+      "monitoring": {
+          "mode": "AUTOMATED"
       },
       "rest_api": {
           "endpoint_configuration": "REGIONAL",

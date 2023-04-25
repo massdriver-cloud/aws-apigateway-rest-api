@@ -6,6 +6,38 @@ source_url: github.com/massdriver-cloud/aws-apigateway-rest-api
 access: "private"
 type: "infrastructure"
 
+CloudWatchAlarmMetricInteger: &cloudwatch_alarm_metric_integer
+  required:
+    - threshold
+    - period
+  properties:
+    threshold:
+      type: integer
+      title: Threshold
+    period:
+      type: integer
+      title: Period
+      minimum: 1
+      maximum: 86400
+      default: 300
+      description: The length of time associated with this statistic
+
+CloudWatchAlarmMetricFloat: &cloudwatch_alarm_metric_float
+  required:
+    - threshold
+    - period
+  properties:
+    threshold:
+      type: number
+      title: Threshold
+    period:
+      type: integer
+      title: Period
+      minimum: 1
+      maximum: 86400
+      default: 300
+      description: The length of time associated with this statistic
+
 # schema-params.json
 # JSON Schema sans-fields above
 params:
@@ -19,6 +51,8 @@ params:
         stage_name: live
       dns:
         enabled: false
+      monitoring:
+        mode: AUTOMATED
     - __name: Edge Optimized
       rest_api:
         endpoint_configuration: EDGE
@@ -90,6 +124,54 @@ params:
           title: Enable DNS and SSL
           description: Enabling this option will allow you to define DNS for your API Gateway
           default: true
+    monitoring:
+      type: object
+      title: Monitoring
+      properties:
+        mode:
+          title: Alarm Mode
+          description: Enable and customize APIGateway metric alarms.
+          # TODO: back this to a type to keep it consistent across bundles
+          type: string
+          default: AUTOMATED
+          oneOf:
+            - const: AUTOMATED
+              title: Automated
+            - const: CUSTOM
+              title: Custom
+            - const: DISABLED
+              title: Disabled
+      dependencies:
+        mode:
+          oneOf:
+            - properties:
+                mode:
+                  const: AUTOMATED
+            - properties:
+                mode:
+                  const: DISABLED
+            - properties:
+                mode:
+                  const: CUSTOM
+                alarms:
+                  type: object
+                  title: Alarms
+                  properties:
+                    client_errors:
+                      title: 4XXError Percent
+                      description: "Unit: SUM"
+                      type: object
+                      <<: *cloudwatch_alarm_metric_float
+                    server_errors:
+                      title: 5XXError Percent
+                      description: "Unit: SUM"
+                      type: object
+                      <<: *cloudwatch_alarm_metric_float
+                    latency:
+                      title: Request Latency
+                      description: "Total latency from client request to response including AWS integration latency. Unit: Seconds"
+                      type: object
+                      <<: *cloudwatch_alarm_metric_integer
 
 
 # schema-connections.json
@@ -118,6 +200,7 @@ ui:
   ui:order:
     - "rest_api"
     - "dns"
+    - "monitoring"
   rest_api:
     ui:order:
       - region
@@ -134,3 +217,7 @@ ui:
     hosted_zone:
       ui:field: dnsZonesDropdown
       cloud: aws
+  monitoring:
+    ui:order:
+      - mode
+      - alarms

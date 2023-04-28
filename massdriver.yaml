@@ -221,3 +221,8 @@ ui:
     ui:order:
       - mode
       - alarms
+    alarms:
+      latency:
+        threshold:
+          ui:field: conversionFieldTime
+          unit: Milliseconds

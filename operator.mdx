@@ -34,3 +34,17 @@ Gateway and default stage.
 
 API Gateway can be run in REGIONAL mode which is great for accessing your API from smaller geographies like single continents. EDGE mode will put a CloudFront distrobution in front of
 your API providing global caching and lowering latency for distant clients.
+
+## Alarms
+
+### Client Errors
+
+Alerts when percentage of 4XX errors reaches the threshold percent. The default is %1.
+
+### Server Errors
+
+Alerts when percentage of 5XX errors reaches the threshold percent. The default is %0.1.
+
+### Latency
+
+Alerts when average latency is above the set threshold. The default is 1 second.

@@ -8,13 +8,13 @@ locals {
 
     # 5XXError SUM > (TotalRequests * (Threshold / 100))
     server_errors = {
-      threshold = 1
+      threshold = 0.1
       period    = 300
     }
 
     # Latency AVG > Threshold
     latency = {
-      threshold = 1
+      threshold = 1000
       period    = 300
     }
   }
@@ -22,10 +22,10 @@ locals {
   alarms_map = {
     "AUTOMATED" = local.automated_alarms
     "DISABLED"  = {}
-    "CUSTOM"    = lookup(var.monitoring, "alarms", {})
+    "CUSTOM"    = lookup(var.monitoring, "alarms", local.automated_alarms)
   }
 
-  alarms = lookup(local.alarms_map, var.monitoring.mode, {})
+  alarms = lookup(local.alarms_map, var.monitoring.mode, local.automated_alarms)
 }
 
 module "alarm_channel" {

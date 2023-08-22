@@ -1,6 +1,6 @@
 [![Massdriver][logo]][website]
 
-# aws-api-gateway
+# aws-apigateway-rest-api
 
 [![Release][release_shield]][release_url]
 [![Contributors][contributors_shield]][contributors_url]
@@ -37,13 +37,13 @@ Security and compliance scanning of our bundles is performed using [Bridgecrew](
 
 | Benchmark                                                                                                                                                                                                                                                       | Description                        |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| [![Infrastructure Security](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-api-gateway/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-api-gateway&benchmark=INFRASTRUCTURE+SECURITY) | Infrastructure Security Compliance |
-| [![CIS AWS](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-api-gateway/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-api-gateway&benchmark=CIS+AWS+V1.2) | Center for Internet Security, AWS Compliance |
-| [![PCI-DSS](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-api-gateway/pci)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-api-gateway&benchmark=PCI-DSS+V3.2) | Payment Card Industry Data Security Standards Compliance |
-| [![NIST-800-53](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-api-gateway/nist)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-api-gateway&benchmark=NIST-800-53) | National Institute of Standards and Technology Compliance |
-| [![ISO27001](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-api-gateway/iso)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-api-gateway&benchmark=ISO27001) | Information Security Management System, ISO/IEC 27001 Compliance |
-| [![SOC2](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-api-gateway/soc2)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-api-gateway&benchmark=SOC2)| Service Organization Control 2 Compliance |
-| [![HIPAA](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-api-gateway/hipaa)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-api-gateway&benchmark=HIPAA) | Health Insurance Portability and Accountability Compliance |
+| [![Infrastructure Security](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-apigateway-rest-api/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-apigateway-rest-api&benchmark=INFRASTRUCTURE+SECURITY) | Infrastructure Security Compliance |
+| [![CIS AWS](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-apigateway-rest-api/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-apigateway-rest-api&benchmark=CIS+AWS+V1.2) | Center for Internet Security, AWS Compliance |
+| [![PCI-DSS](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-apigateway-rest-api/pci)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-apigateway-rest-api&benchmark=PCI-DSS+V3.2) | Payment Card Industry Data Security Standards Compliance |
+| [![NIST-800-53](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-apigateway-rest-api/nist)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-apigateway-rest-api&benchmark=NIST-800-53) | National Institute of Standards and Technology Compliance |
+| [![ISO27001](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-apigateway-rest-api/iso)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-apigateway-rest-api&benchmark=ISO27001) | Information Security Management System, ISO/IEC 27001 Compliance |
+| [![SOC2](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-apigateway-rest-api/soc2)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-apigateway-rest-api&benchmark=SOC2)| Service Organization Control 2 Compliance |
+| [![HIPAA](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/aws-apigateway-rest-api/hipaa)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=massdriver-cloud%2Faws-apigateway-rest-api&benchmark=HIPAA) | Health Insurance Portability and Accountability Compliance |
 
 <!-- COMPLIANCE:END -->
 
@@ -208,7 +208,7 @@ Resources created by this bundle that can be connected to other bundles.
 
 ### Bug Reports & Feature Requests
 
-Did we miss something? Please [submit an issue](https://github.com/massdriver-cloud/aws-api-gateway/issues) to report any bugs or request additional features.
+Did we miss something? Please [submit an issue](https://github.com/massdriver-cloud/aws-apigateway-rest-api/issues) to report any bugs or request additional features.
 
 ### Developing
 
@@ -241,24 +241,24 @@ Please connect with us!
 
 [logo]: https://raw.githubusercontent.com/massdriver-cloud/docs/main/static/img/logo-with-logotype-horizontal-400x110.svg
 
-[docs]: https://docs.massdriver.cloud/?utm_source=github&utm_medium=readme&utm_campaign=aws-api-gateway&utm_content=docs
-[website]: https://www.massdriver.cloud/?utm_source=github&utm_medium=readme&utm_campaign=aws-api-gateway&utm_content=website
-[github]: https://github.com/massdriver-cloud?utm_source=github&utm_medium=readme&utm_campaign=aws-api-gateway&utm_content=github
-[slack]: https://massdriverworkspace.slack.com/?utm_source=github&utm_medium=readme&utm_campaign=aws-api-gateway&utm_content=slack
-[linkedin]: https://www.linkedin.com/company/massdriver/?utm_source=github&utm_medium=readme&utm_campaign=aws-api-gateway&utm_content=linkedin
+[docs]: https://docs.massdriver.cloud/?utm_source=github&utm_medium=readme&utm_campaign=aws-apigateway-rest-api&utm_content=docs
+[website]: https://www.massdriver.cloud/?utm_source=github&utm_medium=readme&utm_campaign=aws-apigateway-rest-api&utm_content=website
+[github]: https://github.com/massdriver-cloud?utm_source=github&utm_medium=readme&utm_campaign=aws-apigateway-rest-api&utm_content=github
+[slack]: https://massdriverworkspace.slack.com/?utm_source=github&utm_medium=readme&utm_campaign=aws-apigateway-rest-api&utm_content=slack
+[linkedin]: https://www.linkedin.com/company/massdriver/?utm_source=github&utm_medium=readme&utm_campaign=aws-apigateway-rest-api&utm_content=linkedin
 
-[contributors_shield]: https://img.shields.io/github/contributors/massdriver-cloud/aws-api-gateway.svg?style=for-the-badge
-[contributors_url]: https://github.com/massdriver-cloud/aws-api-gateway/graphs/contributors
-[forks_shield]: https://img.shields.io/github/forks/massdriver-cloud/aws-api-gateway.svg?style=for-the-badge
-[forks_url]: https://github.com/massdriver-cloud/aws-api-gateway/network/members
-[stars_shield]: https://img.shields.io/github/stars/massdriver-cloud/aws-api-gateway.svg?style=for-the-badge
-[stars_url]: https://github.com/massdriver-cloud/aws-api-gateway/stargazers
-[issues_shield]: https://img.shields.io/github/issues/massdriver-cloud/aws-api-gateway.svg?style=for-the-badge
-[issues_url]: https://github.com/massdriver-cloud/aws-api-gateway/issues
-[release_url]: https://github.com/massdriver-cloud/aws-api-gateway/releases/latest
-[release_shield]: https://img.shields.io/github/release/massdriver-cloud/aws-api-gateway.svg?style=for-the-badge
-[license_shield]: https://img.shields.io/github/license/massdriver-cloud/aws-api-gateway.svg?style=for-the-badge
-[license_url]: https://github.com/massdriver-cloud/aws-api-gateway/blob/main/LICENSE
+[contributors_shield]: https://img.shields.io/github/contributors/massdriver-cloud/aws-apigateway-rest-api.svg?style=for-the-badge
+[contributors_url]: https://github.com/massdriver-cloud/aws-apigateway-rest-api/graphs/contributors
+[forks_shield]: https://img.shields.io/github/forks/massdriver-cloud/aws-apigateway-rest-api.svg?style=for-the-badge
+[forks_url]: https://github.com/massdriver-cloud/aws-apigateway-rest-api/network/members
+[stars_shield]: https://img.shields.io/github/stars/massdriver-cloud/aws-apigateway-rest-api.svg?style=for-the-badge
+[stars_url]: https://github.com/massdriver-cloud/aws-apigateway-rest-api/stargazers
+[issues_shield]: https://img.shields.io/github/issues/massdriver-cloud/aws-apigateway-rest-api.svg?style=for-the-badge
+[issues_url]: https://github.com/massdriver-cloud/aws-apigateway-rest-api/issues
+[release_url]: https://github.com/massdriver-cloud/aws-apigateway-rest-api/releases/latest
+[release_shield]: https://img.shields.io/github/release/massdriver-cloud/aws-apigateway-rest-api.svg?style=for-the-badge
+[license_shield]: https://img.shields.io/github/license/massdriver-cloud/aws-apigateway-rest-api.svg?style=for-the-badge
+[license_url]: https://github.com/massdriver-cloud/aws-apigateway-rest-api/blob/main/LICENSE
 
 [email_url]: mailto:support@massdriver.cloud
 [email_shield]: https://img.shields.io/badge/email-Massdriver-black.svg?style=for-the-badge&logo=mail.ru&color=000000
@@ -267,9 +267,9 @@ Please connect with us!
 [linkedin_url]: https://linkedin.com/in/massdriver-cloud
 [linkedin_shield]: https://img.shields.io/badge/follow-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&color=0A66C2
 
-[twitter_url]: https://twitter.com/massdriver?utm_source=github&utm_medium=readme&utm_campaign=aws-api-gateway&utm_content=twitter
+[twitter_url]: https://twitter.com/massdriver?utm_source=github&utm_medium=readme&utm_campaign=aws-apigateway-rest-api&utm_content=twitter
 [twitter_shield]: https://img.shields.io/badge/follow-Twitter-black.svg?style=for-the-badge&logo=twitter&color=1DA1F2
-[discourse_url]: https://community.massdriver.cloud?utm_source=github&utm_medium=readme&utm_campaign=aws-api-gateway&utm_content=discourse
+[discourse_url]: https://community.massdriver.cloud?utm_source=github&utm_medium=readme&utm_campaign=aws-apigateway-rest-api&utm_content=discourse
 [discourse_shield]: https://img.shields.io/badge/join-Discourse-black.svg?style=for-the-badge&logo=discourse&color=000000
 [youtube_url]: https://www.youtube.com/channel/UCfj8P7MJcdlem2DJpvymtaQ
 [youtube_shield]: https://img.shields.io/badge/subscribe-Youtube-black.svg?style=for-the-badge&logo=youtube&color=FF0000

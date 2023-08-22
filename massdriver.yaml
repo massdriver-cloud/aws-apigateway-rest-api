@@ -1,6 +1,6 @@
 # This file will be used to generate all of the schema-*.json files in a bundle
 schema: draft-07
-name: "aws-api-gateway"
+name: "aws-apigateway-rest-api"
 description: "Serverless Rest API which can be integrated with various AWS services"
 source_url: github.com/massdriver-cloud/aws-apigateway-rest-api
 access: "private"
@@ -73,7 +73,7 @@ params:
         - stage_name
       properties:
         region:
-          $ref:  https://raw.githubusercontent.com/massdriver-cloud/artifact-definitions/main/definitions/types/aws-region.json
+          $ref: https://raw.githubusercontent.com/massdriver-cloud/artifact-definitions/main/definitions/types/aws-region.json
           $md.immutable: true
         endpoint_configuration:
           type: string
@@ -173,7 +173,6 @@ params:
                       type: object
                       <<: *cloudwatch_alarm_metric_integer
 
-
 # schema-connections.json
 # Named list of input connections (artifacts) (map[name]artifact)
 
@@ -183,7 +182,6 @@ connections:
   properties:
     aws_authentication:
       $ref: massdriver/aws-iam-role
-
 
 # schema-artifacts.json
 # Named list of output artifacts  (map[name]artifact)

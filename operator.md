@@ -1,8 +1,8 @@
-## AWS API Gateway
+# AWS API Gateway
 
 Amazon API Gateway is a managed service that allows you to create, publish, maintain, monitor, and secure APIs at any scale. It handles all the tasks involved in accepting and processing up to hundreds of thousands of concurrent API calls, including traffic management, authorization and access control, monitoring, and API version management.
 
-### Design Decisions
+## Design Decisions
 
 1. **Endpoint Configuration**:
    - Supports both `REGIONAL` and `EDGE` endpoint types.
@@ -23,9 +23,9 @@ Amazon API Gateway is a managed service that allows you to create, publish, main
 5. **Region Configuration**:
    - Defines primary and secondary AWS providers for regional deployments.
 
-### Runbook
+## Runbook
 
-#### API Gateway Returns 4XX Errors
+### API Gateway Returns 4XX Errors
 
 If you are experiencing a large number of 4XX errors, this typically indicates a client-side issue such as a bad request or unauthorized request.
 
@@ -37,7 +37,7 @@ aws cloudwatch get-metric-statistics --namespace AWS/ApiGateway --metric-name 4X
 
 This command fetches the 4XX errors for your API over the last 15 minutes. Look for the `Sum` value.
 
-#### API Gateway Returns 5XX Errors
+### API Gateway Returns 5XX Errors
 
 5XX errors indicate server-side issues, possibly within your API backend integrations.
 
@@ -49,7 +49,7 @@ aws cloudwatch get-metric-statistics --namespace AWS/ApiGateway --metric-name 5X
 
 This command returns the 5XX errors for your API over the last 15 minutes. Look for the `Sum` value.
 
-#### High Latency Issues
+### High Latency Issues
 
 Latency issues can stem from various sources, including backend performance or network issues.
 
@@ -61,7 +61,7 @@ aws cloudwatch get-metric-statistics --namespace AWS/ApiGateway --metric-name La
 
 This command fetches the average latency for your API over the last 15 minutes. Look for the `Average` value.
 
-#### DNS Resolution Issues
+### DNS Resolution Issues
 
 If your custom domain is not resolving correctly to your API Gateway, ensure the Route 53 hosted zone settings are correct.
 
@@ -73,7 +73,7 @@ aws route53 list-resource-record-sets --hosted-zone-id <hosted_zone_id>
 
 Check if the DNS records match the configurations provided for your API Gateway endpoint.
 
-#### SSL/TLS Certificate Issues
+### SSL/TLS Certificate Issues
 
 Sometimes SSL/TLS handshake failures can cause API access issues. Ensure certificates are properly set up.
 
@@ -91,7 +91,7 @@ aws acm describe-certificate --certificate-arn <certificate_arn>
 
 Make sure the certificate status is `ISSUED` and is correctly associated with your API Gateway.
 
-#### IAM Role Issues
+### IAM Role Issues
 
 Incorrect permissions can lead to API Gateway failing to access required resources.
 

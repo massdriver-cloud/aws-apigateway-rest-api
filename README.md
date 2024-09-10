@@ -37,62 +37,8 @@ Form input parameters for configuring a bundle for deployment.
 <summary>View</summary>
 
 <!-- PARAMS:START -->
-## Properties
 
-- **`dns`** *(object)*: Configuration to enable custom DNS and SSL Certs.
-  - **`enabled`** *(boolean)*: Enabling this option will allow you to define DNS for your API Gateway. Default: `True`.
-- **`monitoring`** *(object)*
-  - **`mode`** *(string)*: Enable and customize APIGateway metric alarms. Default: `AUTOMATED`.
-    - **One of**
-      - Automated
-      - Custom
-      - Disabled
-- **`rest_api`** *(object)*: API GATEWAY general configuration.
-  - **`endpoint_configuration`** *(string)*: API Gateways can be region bound, or edge optimized which will create a global presence. Must be one of: `['EDGE', 'REGIONAL']`.
-  - **`region`** *(string)*: AWS Region to provision in.
-
-    Examples:
-    ```json
-    "us-west-2"
-    ```
-
-  - **`stage_name`** *(string)*: Deployments of API gateway are tied to a stage. Default: `live`.
-## Examples
-
-  ```json
-  {
-      "__name": "Wizard",
-      "dns": {
-          "enabled": false
-      },
-      "monitoring": {
-          "mode": "AUTOMATED"
-      },
-      "rest_api": {
-          "endpoint_configuration": "REGIONAL",
-          "region": "us-west-2",
-          "stage_name": "live"
-      }
-  }
-  ```
-
-  ```json
-  {
-      "__name": "Edge Optimized",
-      "rest_api": {
-          "endpoint_configuration": "EDGE"
-      }
-  }
-  ```
-
-  ```json
-  {
-      "__name": "Regional",
-      "rest_api": {
-          "endpoint_configuration": "REGIONAL"
-      }
-  }
-  ```
+**Params coming soon**
 
 <!-- PARAMS:END -->
 
@@ -106,30 +52,8 @@ Connections from other bundles that this bundle depends on.
 <summary>View</summary>
 
 <!-- CONNECTIONS:START -->
-## Properties
 
-- **`aws_authentication`** *(object)*: . Cannot contain additional properties.
-  - **`data`** *(object)*
-    - **`arn`** *(string)*: Amazon Resource Name.
-
-      Examples:
-      ```json
-      "arn:aws:rds::ACCOUNT_NUMBER:db/prod"
-      ```
-
-      ```json
-      "arn:aws:ec2::ACCOUNT_NUMBER:vpc/vpc-foo"
-      ```
-
-    - **`external_id`** *(string)*: An external ID is a piece of data that can be passed to the AssumeRole API of the Security Token Service (STS). You can then use the external ID in the condition element in a role's trust policy, allowing the role to be assumed only when a certain value is present in the external ID.
-  - **`specs`** *(object)*
-    - **`aws`** *(object)*: .
-      - **`region`** *(string)*: AWS Region to provision in.
-
-        Examples:
-        ```json
-        "us-west-2"
-        ```
+**Connections coming soon**
 
 <!-- CONNECTIONS:END -->
 
@@ -143,42 +67,8 @@ Resources created by this bundle that can be connected to other bundles.
 <summary>View</summary>
 
 <!-- ARTIFACTS:START -->
-## Properties
 
-- **`api_gateway`** *(object)*: AWS API Gateway and it's Default Stage. Cannot contain additional properties.
-  - **`data`** *(object)*
-    - **`infrastructure`** *(object)*
-      - **`arn`** *(string)*: Amazon Resource Name format for API Gateway and related resources.
-
-        Examples:
-        ```json
-        "arn:partition:apigateway:region::/restapis/api-id"
-        ```
-
-        ```json
-        "arn:partition:apigateway:region::/restapis/api-id/stages/stage-id"
-        ```
-
-      - **`root_resource_id`** *(string)*: Id of the API Gateway resource at the '/' route.
-      - **`stage_arn`** *(string)*: Amazon Resource Name format for API Gateway and related resources.
-
-        Examples:
-        ```json
-        "arn:partition:apigateway:region::/restapis/api-id"
-        ```
-
-        ```json
-        "arn:partition:apigateway:region::/restapis/api-id/stages/stage-id"
-        ```
-
-  - **`specs`** *(object)*
-    - **`aws`** *(object)*: .
-      - **`region`** *(string)*: AWS Region to provision in.
-
-        Examples:
-        ```json
-        "us-west-2"
-        ```
+**Artifacts coming soon**
 
 <!-- ARTIFACTS:END -->
 

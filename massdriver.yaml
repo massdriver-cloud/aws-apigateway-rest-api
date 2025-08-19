@@ -3,7 +3,6 @@ name: aws-apigateway-rest-api
 version: 1.0.0
 description: Serverless Rest API which can be integrated with various AWS services
 source_url: https://github.com/massdriver-cloud/aws-apigateway-rest-api
-type: application
 CloudWatchAlarmMetricInteger:
   required: &3
   - threshold

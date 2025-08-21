@@ -1,7 +1,6 @@
 resource "massdriver_artifact" "api_gateway" {
-  field                = "api_gateway"
-  provider_resource_id = module.api_gateway.arn
-  name                 = "Api Gateway: ${var.md_metadata.name_prefix}"
+  field    = "api_gateway"
+  name     = "Api Gateway: ${var.md_metadata.name_prefix}"
   artifact = jsonencode(
     {
       data = {

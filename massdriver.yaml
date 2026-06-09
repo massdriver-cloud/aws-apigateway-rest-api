@@ -170,13 +170,13 @@ connections:
   - aws_authentication
   properties:
     aws_authentication:
-      "$ref": massdriver/aws-iam-role
+      "$ref": aws-iam-role
 artifacts:
   required:
   - api_gateway
   properties:
     api_gateway:
-      "$ref": massdriver/aws-api-gateway-rest-api
+      "$ref": aws-api-gateway-rest-api
 ui:
   ui:order:
   - rest_api
